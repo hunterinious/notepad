@@ -1,6 +1,7 @@
 # notepad
 
-Notepad -блокнот
+Notepad - Блокнот
+
 With this program you can note all you want
 
 # Built With
