@@ -3,25 +3,10 @@
 # Класс «Ссылка», разновидность базового класса «Запись»
 class Link < Post
   def initialize
-<<<<<<< HEAD
     super
 
     @url = ''
   end
-
-  def read_from_console
-    puts 'Адрес ссылки (url):'
-    @url = STDIN.gets.chomp
-
-=======
-    # Вызываем конструктор родителя
-    super
-
-    # Создаем специфичную для ссылки переменную экземпляра @url — адрес, куда
-    # будет вести ссылка.
-    @url = ''
-  end
-
 
   # Спрашивает у пользователя адрес ссылки и её описани, которые мы записываем
   # соответственно в переменны экземпляра @url и @text.
@@ -31,22 +16,18 @@ class Link < Post
     @url = STDIN.gets.chomp
 
     # Спрашиваем у пользователя описание ссылки (одной строчки будет достаточно)
->>>>>>> f805f5052087bd9a74b84173bdab312b8ae85e3d
     puts 'Что за ссылка?'
     @text = STDIN.gets.chomp
   end
 
-<<<<<<< HEAD
-=======
   # Метод to_string для ссылки возвращает массив из трех строк: адрес ссылки,
   # описание ссылки и строка с датой создания ссылки.
->>>>>>> f805f5052087bd9a74b84173bdab312b8ae85e3d
+
   def to_strings
     time_string = "Создано: #{@created_at.strftime('%Y.%m.%d, %H:%M:%S')} \n\r"
 
     [@url, @text, time_string]
   end
-<<<<<<< HEAD
 
   # Метод to_db_hash у Задачи добавляет два ключа в хэш
   def to_db_hash
@@ -67,6 +48,3 @@ class Link < Post
     @url = data_hash['url']
   end
 end
-=======
-end
->>>>>>> f805f5052087bd9a74b84173bdab312b8ae85e3d

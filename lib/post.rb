@@ -1,6 +1,4 @@
 # encoding: utf-8
-<<<<<<< HEAD
-
 require 'sqlite3'
 
 # Базовый класс «Запись» — здесь мы определим основные методы и свойства,
@@ -8,28 +6,17 @@ require 'sqlite3'
 class Post
   SQLITE_DB_FILE = 'notepad.sqlite'.freeze
 
+  # Метод post_types класса Post, возвращает всех известных ему детей класса
+  # Post в виде массива классов.
   def self.post_types
     {'Memo' => Memo, 'Task' => Task, 'Link' => Link}
   end
 
-  def self.create(type)
-    post_types[type].new
-=======
-#
-# Базовый класс «Запись» — здесь мы определим основные методы и свойства,
-# общие для всех типов записей.
-class Post
-  # Метод post_types класса Post, возвращает всех известных ему детей класса
-  # Post в виде массива классов.
-  def self.post_types
-    [Memo, Task, Link]
-  end
   # Метод create класса Post динамически (в зависимости от параметра) создает
   # объект нужного класса (Memo, Task или Link) из набора возможных детей,
   # получая список с помощью метода post_types, объявленного выше.
   def self.create(type_index)
     post_types[type_index].new
->>>>>>> f805f5052087bd9a74b84173bdab312b8ae85e3d
   end
 
   def initialize
@@ -37,7 +24,6 @@ class Post
     @text = []
   end
 
-<<<<<<< HEAD
   # Метод класса find_by_id находит в базе запись по идентификатору
   def self.find_by_id(id)
     # Если id не передали, мы ничего не ищем, а возвращаем nil
@@ -117,8 +103,6 @@ class Post
     result
   end
 
-=======
->>>>>>> f805f5052087bd9a74b84173bdab312b8ae85e3d
   def read_from_console
     # Этот метод должен быть реализован у каждого ребенка
   end
@@ -127,7 +111,6 @@ class Post
     # Этот метод должен быть реализован у каждого ребенка
   end
 
-<<<<<<< HEAD
   def load_data(data_hash)
     @created_at = Time.parse(data_hash['created_at'])
     @text = data_hash['text']
@@ -165,12 +148,9 @@ class Post
     insert_row_id
   end
 
-  def save
-    file = File.new(file_path, 'w:UTF-8')
-=======
+
   def save
     file = File.new(file_path, 'w:UTF-8') # открываем файл на запись
->>>>>>> f805f5052087bd9a74b84173bdab312b8ae85e3d
 
     to_strings.each { |string| file.puts(string) }
 
@@ -185,7 +165,3 @@ class Post
     "#{current_path}/#{self.class.name}_#{file_time}.txt"
   end
 end
-<<<<<<< HEAD
-=======
-
->>>>>>> f805f5052087bd9a74b84173bdab312b8ae85e3d
